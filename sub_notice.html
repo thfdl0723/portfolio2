@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7a5ac67f6f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery-migrate-1.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/notice.css">
+    <script>
+        $(document).ready(function(){
+             var num = 0;
+            listNum = $(".btn>a").length; //갯수 : 3
+            $(".btn>a").click(function(){
+               
+                var i = $(this).index();
+                $(".btn>a").removeClass();
+                $(".btn>a").eq(i).addClass("active");
+                $(".table_layout>ul").removeClass();
+                $(".table_layout>ul").eq(i).addClass("list");
+                num=i;
+            });
+            $(".btnrb").click(function(e){
+                e.preventDefault();
+                num = num+1;
+                if(num>=listNum){
+                    num = listNum-1; //현재 나의 index값
+                    return false;//맨끝에 왔을 때 더이상 처리하지 않음
+                }
+                $(".btn>a").removeClass();  
+                $(".btn>a").eq(num).addClass("active");
+                $(".table_layout>ul").removeClass();
+                $(".table_layout>ul").eq(num).addClass("list");
+            });
+            $(".btnlb").click(function(e){
+                e.preventDefault();
+                num = num-1;
+                listNum = $(".btn>a").length;
+                if(num<0){
+                    num = 0;
+                    return false;//맨끝에 왔을 때 더이상 처리하지 않음
+                }
+                $(".btn>a").removeClass();
+                $(".btn>a").eq(num).addClass("active");
+                $(".table_layout>ul").removeClass();
+                $(".table_layout>ul").eq(num).addClass("list");
+            });
+            $(".btnrr").click(function(e){
+                 e.preventDefault();
+                $(".btn>a").removeClass();
+                $(".btn>a").eq(2).addClass("active");
+                $(".table_layout>ul").removeClass();
+                $(".table_layout>ul").eq(2).addClass("list");
+            });
+            $(".btnll").click(function(e){
+                 e.preventDefault();
+                $(".btn>a").removeClass();
+                $(".btn>a").eq(0).addClass("active");
+                $(".table_layout>ul").removeClass();
+                $(".table_layout>ul").eq(0).addClass("list");
+            });
+            var hnum = 0;
+            var hmenu = $("#m_menu .hamburger_menu");
+           hmenu.click(function(){
+               if (hnum ==0){
+                   hmenu.addClass("change");
+                   hnum = 1;
+               } else {
+                   hmenu.removeClass("change");
+                   hnum = 0;
+               }
+           })
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+       <nav>
+       <div id="logo">
+         <a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/index.html">
+         <img src="img/logo.png" alt="">
+        </a>
+       </div>
+       <div id="pcmenu">
+        <div class="join">
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Join</a></li>
+                <select name="language" id="language">
+                     <option value="KOR">KOR</option>
+                     <option value="ENG">ENG</option>
+                     <option value="CHA">CHA</option>
+                     <option value="JAN">JAN</option>
+                        </select>
+            </ul>
+        </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_about.html">About</a></li>
+                    <li><a href="#">Artist</a>
+                        <ul class="sub_1">
+                            <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_musician.html">Musician</a></li>
+                            <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_actor.html">Actor</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_news.html">News</a></li>
+                    <li><a href="#">Audition</a>
+                        <ul class="sub_2">
+                            <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_aplly.html">Apply</a></li>
+                            <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_notice.html">Notice</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="m_menu">
+            <div id="hamburger_menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="m_bg_menu">
+                <div class="m_t_menu">
+                    <a href="#">Login</a> | <a href="#">Join</a>
+                </div>
+                <div class="m_btn_menu">
+                    <ul>
+                        <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_about.html">About</a></li>
+                        <li><a href="#">Artist</a>
+                            <ul class="m_sub">
+                                <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_musician.html">Musician</a></li>
+                                <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_actor.html">Actor</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_news.html">News</a></li>
+                        <li><a href="#">Audition</a>
+                            <ul class="m_sub">
+                                <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_aplly.html">Apply</a></li>
+                                <li><a href="file:///G:/1.%EC%9B%B9/5_Portfolio/YG%20ENTERTAINMENT/sub_notice.html">Notice</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </nav>
+    </header>
+     <script>
+        $(document).ready(function(){
+            var num = 0;
+            $("#hamburger_menu").click(function(){
+                if (num == 0) {
+                    $("#hamburger_menu").addClass("change");
+                    num = 1;
+//                    $("#m_menu > #m_bg_menu").css("display","block");
+                     $("#m_menu > #m_bg_menu").stop().animate({left:"20%"},500);
+                } else {
+                    $("#hamburger_menu").removeClass("change");
+                    num = 0;
+//                   $("#m_menu > #m_bg_menu").css("display","none");
+                   $("#m_menu > #m_bg_menu").stop().animate({left:"100%"},500);
+                    
+                }
+          
+            });
+             $("#m_menu > #m_bg_menu > .m_btn_menu > ul >li").click(function(){
+                 $(this).find(".m_sub").stop().slideToggle();  
+             });
+        });
+    </script>
+    <h1>NOTICE</h1>
+    <div class="table_layout">
+       <h3>공지사항</h3>
+        <ul class="list">
+            <li class="table_th">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 11월 지원서 검토안내]</div>
+                <div class="date">2020-11-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 10월 지원서 검토안내]</div>
+                <div class="date">2020-10-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 9월 지원서 검토안내]</div>
+                <div class="date">2020-09-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 8월 지원서 검토안내]</div>
+                <div class="date">2020-08-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 7월 지원서 검토안내]</div>
+                <div class="date">2020-07-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 6월 지원서 검토안내]</div>
+                <div class="date">2020-06-31</div>
+            </li>
+        </ul>
+         <ul>
+            <li class="table_th">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 5월 지원서 검토안내]</div>
+                <div class="date">2020-05-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 4월 지원서 검토안내]</div>
+                <div class="date">2020-04-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 3월 지원서 검토안내]</div>
+                <div class="date">2020-03-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 2월 지원서 검토안내]</div>
+                <div class="date">2020-02-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 1월 지원서 검토안내]</div>
+                <div class="date">2020-01-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 12월 지원서 검토안내]</div>
+                <div class="date">2019-12-31</div>
+            </li>
+        </ul>
+        <ul>
+            <li class="table_th">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 11월 지원서 검토안내]</div>
+                <div class="date">2019-11-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 10월 지원서 검토안내]</div>
+                <div class="date">2019-10-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 9월 지원서 검토안내]</div>
+                <div class="date">2019-09-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 8월 지원서 검토안내]</div>
+                <div class="date">2019-08-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 7월 지원서 검토안내]</div>
+                <div class="date">2019-07-31</div>
+            </li>
+            <li class="br">
+                <div></div>
+                <div></div>
+            </li>
+            <li class="table_tr">
+                <div class="subject">[WWW.YG-AUDITION 6월 지원서 검토안내]</div>
+                <div class="date">2019-06-31</div>
+            </li>
+        </ul>
+        <div class="pagination">
+            <div class="page_wrap">
+                <a href="#" class="btnll"><img src="img/arrow_ll.gif" alt="ll"></a>
+                <a href="#" class="btnlb"><img src="img/arrow_lb.gif" alt="lb"></a>
+                <span class="btn">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                </span>
+                <a href="#" class="btnrb"><img src="img/arrow_rb.gif" alt="rb"></a>
+                <a href="#" class="btnrr"><img src="img/arrow_rr.gif" alt="rr"></a>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+            <div id="foo_logo">
+                <img src="img/logo_footer.gif" alt="footer logo">
+            </div>
+            <div id="address">
+            <p>YG Entertaniment의 모든 컨텐츠는  저작권의 보호를 받고 있습니다. <br><span>Copyright YG Emtertainment All Right Reserved.</span></p>
+            </div>
+            <div id="foo_menu">
+            <a href="#">개인정보 처리방침</a> | <a href="#">사이트 이용약관</a>
+            <p>© 2020 YGENTERTAINMENT INC.</p>
+            </div>
+       </div>
+    </div>
+</body>
+</html>
